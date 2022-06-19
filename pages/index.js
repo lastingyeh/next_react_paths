@@ -1,12 +1,25 @@
-import { Fragment } from "react";
+import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
+import { Fragment } from 'react';
 
+import FeaturedPosts from '../components/home-page/featured-posts';
 import Hero from '../components/home-page/hero';
+import { getFeaturedPosts } from '../lib/posts-util';
 
-function HomePage() {
-  return <Fragment>
-    <Hero/>
+function HomePage(props) {
+	return (
+		<Fragment>
+			<Hero />
+			<FeaturedPosts posts={props.posts} />
+		</Fragment>
+	);
+}
 
-  </Fragment>
+export function getStaticProps() {
+	const featuredPosts = getFeaturedPosts();
+
+	return {
+		props: { posts: featuredPosts },
+	};
 }
 
 export default HomePage;
