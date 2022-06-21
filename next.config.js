@@ -8,16 +8,16 @@ module.exports = phase => {
 				mongodb_password: '',
 				mongodb_clustername: 'localhost:27017',
 				mongodb_database: 'my-site-dev',
-			},
+			}
 		};
 	}
 
-  return {
-    env: {
-      mongodb_username: '',
-      mongodb_password: '',
-      mongodb_clustername: 'localhost:27017',
-      mongodb_database: 'my-site',
-    },
-  };
+	return {
+		env: {
+			mongodb_username: '',
+			mongodb_password: '',
+			mongodb_clustername: 'localhost:27017',
+			mongodb_database: 'my-site',
+		}
+	};
 };
