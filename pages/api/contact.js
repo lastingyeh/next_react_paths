@@ -24,10 +24,10 @@ async function handler(req, res) {
 
 		let client;
 
+		const connectionString = `mongodb://${process.env.mongodb_clustername}/${process.env.mongodb_database}`;
+
 		try {
-			client = await MongoClient.connect(
-				'mongodb://localhost:27017/my-site'
-			);
+			client = await MongoClient.connect(connectionString);
 		} catch (error) {
 			res.status(500).json({ message: 'Could not connect to database.' });
 			return;
